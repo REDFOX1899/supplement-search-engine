@@ -1,0 +1,32 @@
+## 7. Getting Started Commands
+
+# Clone and setup
+git clone https://github.com/yourusername/supplement-search-engine
+cd supplement-search-engine
+
+# Backend setup
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# Set environment variables
+export ELASTIC_CLOUD_ID="your_cloud_id"
+export ELASTIC_USERNAME="elastic"
+export ELASTIC_PASSWORD="your_password"
+
+# Import data
+python data_processing/data_importer.py
+
+# Run API locally
+uvicorn api.main:app --reload
+
+# Frontend setup (in new terminal)
+cd frontend
+npm install
+npm start
+
+# The app will be available at:
+# Frontend: http://localhost:3000
+# API: http://localhost:8000
+# API Docs: http://localhost:8000/docs
